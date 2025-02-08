@@ -1,0 +1,318 @@
+/*
+ * The Daily Owle - A Wordle-Inspired Game
+ * Copyright (c) 2025 Theodore Wilson
+ *
+ * Licensed under the MIT License.
+ * See LICENSE file in the project root for more details.
+ *
+ * Wordle is a trademark of The New York Times Company. 
+ * This project is an independent implementation and is not affiliated with or endorsed by The New York Times.
+ */
+ *{
+/* margin: 0px !important; */
+/* padding: 0px !important; */
+h1{
+    color: #832232;
+    margin: 0px;
+    padding: 0;
+}
+body{
+    display: flex;
+    flex-direction: column;
+    background-color: #F4BFDB;
+    align-items: center;
+    justify-content: center;
+    gap: 0px;
+}
+#continue
+{
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* z-index: 10; */
+   display: none;
+   opacity: 100%;
+   flex-direction: column;
+}
+img{
+    width: 500px; display: block;
+    /* height: 100%; */
+}
+button {
+    width: 150px; /* Slightly larger for modern feel */
+    height: 50px;
+    background-color: #F4BFDB; /* Soft pink */
+    border: 2px solid #E6A6C7; /* Complementary border */
+    border-radius: 12px; /* Slightly rounder corners */
+    font-size: 18px; /* Modern font size */
+    font-weight: 600; /* Clean and bold */
+    font-family: "Inter", sans-serif; /* Modern sans-serif font */
+    color: #333; /* Dark gray text for better contrast */
+    text-transform: uppercase; /* Modern typography style */
+    letter-spacing: 1px; /* Adds a sleek touch */
+    cursor: pointer; /* Changes cursor to pointer on hover */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    transition: 
+        background-color 0.3s ease, 
+        color 0.3s ease, 
+        box-shadow 0.3s ease, 
+        transform 0.2s ease;
+}
+
+button:hover {
+    background-color: #E6A6C7; /* Slightly darker pink on hover */
+    color: white; /* Changes text to white on hover */
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15); /* Elevate shadow on hover */
+    transform: translateY(-2px); /* Slight hover lift */
+}
+
+button:active {
+    background-color: #C987A4; /* Darker shade when clicked */
+    transform: translateY(0); /* Reset position on click */
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2); /* Lower shadow */
+}
+a{
+    color: inherit;
+    text-decoration: none;
+}
+gap: 0px;
+ }
+.container {
+
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    /* margin: 0; */
+    /* padding: 0; */
+    gap: 9px;
+    background-color: #F4BFDB;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    gap: 6px;
+
+}
+
+.letter,
+.full,
+.COMPLETED {
+    width: 50px;
+    height: 50px;
+    border: 1px solid rgb(0, 0, 0);
+    border-radius: 25%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    color: black;
+    font-weight: 800;
+    transition: background-color 0.5s ease, transform 0.2s ease;
+    font-family: "Inter", serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
+@keyframes flip {
+    0% {
+        transform: rotateX(0deg);
+    }
+
+    49% {
+        transform: rotateX(90deg);
+        /* background-color: white; */
+    }
+
+    /* Keeps it white until halfway */
+    50% {
+        transform: rotateX(90deg);
+        /* background-color: var(--new-bg, white); */
+        background-image: var(--new-bg-image, none);
+        background-size: cover; /* Ensures the image covers the element */
+background-position: center; /* Centers the image */
+background-repeat: no-repeat
+    }
+
+    /* Color changes mid-flip */
+    100% {
+        transform: rotateX(0deg);
+        /* background-color: var(--new-bg, white);
+         */
+        /* border: 1px solid var(--new-bg, --new-bg);
+         */
+         background-image: var(--new-bg-image, none);
+         background-size: cover; /* Ensures the image covers the element */
+background-position: center; /* Centers the image */
+background-repeat: no-repeat;
+text-shadow: none;
+    /* backdrop-filter: blur(2px); */
+    filter: blur(10px);
+    }
+}
+.no-blur {
+    filter: blur(0px) !important;
+    border: 0px;
+
+}
+@keyframes flip-wrong {
+    0% {
+        transform: rotateX(0deg);
+        /* background-color: white; */
+        background-color: white;
+    }
+    49% {
+        transform: rotateX(90deg);
+
+        background-color: white;
+    }
+    50% {
+        transform: rotateX(90deg);
+        background-color: var(--new-bg); /* Turns red mid-flip */
+    }
+    100% {
+        transform: rotateX(0deg);
+        background-color: var(--new-bg);
+       
+    }
+}
+
+.flip-wrong {
+    animation: flip-wrong 0.5s ease-in-out;
+    animation-fill-mode: forwards;
+    /* background-color: red; */
+}
+.flip-unsure{
+    animation: flip-wrong 0.5s ease-in-out;
+    animation-fill-mode: forwards;
+    /* background-color: rgba(255, 247, 0, 0.655); */
+}
+.flip {
+    animation: flip 0.5s ease-in-out;
+    animation-fill-mode: forwards;
+    color: white;
+}
+.CORRECT {
+    background-color: red;
+    color: white !important;
+    /* border-width: 2px !important; */
+    /* border-style: solid !important; */
+    border-color: rgb(20, 50, 120) !important;
+    width: 51px;
+    height: 51px;
+    border: 5px solid red !important;
+    /* border-radius: 25%; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* background-color: white; */
+    /* color: black; */
+    font-weight: 800;
+    transition: background-color 0.5s ease, transform 0.2s ease;
+    font-family: "Inter", serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.WRONG {
+    background-color: rgb(255, 0, 0) !important;
+    color: white !important;
+    border: 1px solid rgb(255, 255, 255) !important;
+    width: 50px;
+    height: 50px;
+    /* border: 1px dashed rgb(0, 0, 0); */
+    border-radius: 25%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    color: black;
+    font-weight: 800;
+    transition: background-color 0.5s ease, transform 0.2s ease;
+    font-family: "Inter", serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.CLOSE {
+    background-color: rgba(70, 120, 180, 0.655) !important;
+    color: white !important;
+    border: 1px solid rgba(70, 120, 180, 0.655) !important;
+    width: 50px;
+    height: 50px;
+    border-radius: 25%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    color: black;
+    font-weight: 800;
+    transition: background-color 0.5s ease, transform 0.2s ease;
+    font-family: "Inter", serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.keyboard {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 15px;
+    margin: 25px;
+}
+
+.keyboard .k-row {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+}
+
+.key {
+    width: 40px;
+    height: 40px;
+
+    border-radius: 15%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 15px;
+
+}
+
+.empty {
+    background-color: white;
+    border: 1px solid black;
+
+}
+
+.k-correct {
+    background-color: rgb(75, 210, 51) !important;
+    border: 1px solid  rgb(75, 210, 51) !important;
+    color: white;
+}
+
+.k-close {
+    background-color: rgba(246, 255, 0, 0.655) !important;
+    border: 1px solid rgba(246, 255, 0, 0.655) !important;
+    color: white;
+}
+
+.k-wrong {
+    background-color: rgba(0, 0, 0, 0.29) !important;
+    border: 1px solid rgba(0, 0, 0, 0.29) !important;
+    color: white;
+}
+
+.key:hover {
+    cursor: pointer;
+}

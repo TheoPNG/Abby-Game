@@ -1,0 +1,111 @@
+<!-- The Daily Owle - A Wordle-Inspired Game
+Copyright (c) 2025 Theodore Wilson
+
+Licensed under the MIT License.
+See LICENSE file in the project root for more details.
+
+Wordle is a trademark of The New York Times Company. 
+This project is an independent implementation and is not affiliated with or endorsed by The New York Times. -->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Hi Abby!</title>
+        <link rel="stylesheet" href="styles1.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Macondo&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    </head>
+    <body style='overflow: hidden'>
+        <h1>Abble</h1>
+        <h4>Hint: Our first date</h4>
+        <div id="continue">
+            <button><a href="./page3.html">Continue?</a></button>
+        </div>
+        <div class="container">
+            <div class="row" id="row0">
+                <div class="b1 COMPLETED flip no-blur" style="--new-bg-image: url(&quot;./photos/row-1-column-1.png&quot;); filter: blur(0px);"></div>
+                <div class="b2 COMPLETED flip no-blur" style="--new-bg-image: url(&quot;./photos/row-1-column-2.png&quot;); filter: blur(0px);"></div>
+                <div class="b3 COMPLETED flip no-blur" style="--new-bg-image: url(&quot;./photos/row-1-column-3.png&quot;); filter: blur(0px);"></div>
+                <div class="b4 COMPLETED flip no-blur" style="--new-bg-image: url(&quot;./photos/row-1-column-4.png&quot;); filter: blur(0px);"></div>
+                <div class="b5 COMPLETED flip no-blur" style="--new-bg-image: url(&quot;./photos/row-1-column-5.png&quot;); filter: blur(0px);"></div>
+            </div>
+            <div class="row" id="row1">
+                
+                <div class="letter b1" id="1current-key"></div>
+                <div class="letter b2" id=""></div>
+                <div class="letter b3" id=""></div>
+                <div class="letter b4" id=""></div>
+                <div class="letter b5" id="last1"></div>
+            </div>
+            <div class="row" id="row2">
+                <div class="letter b1" id="2current-key"></div>
+                <div class="letter b2" id=""></div>
+                <div class="letter b3" id=""></div>
+                <div class="letter b4" id=""></div>
+                <div class="letter b5" id="last2"></div>
+            </div>
+            <div class="row" id="row3">
+                <div class="letter b1" id="3current-key"></div>
+                <div class="letter b2" id=""></div>
+                <div class="letter b3" id=""></div>
+                <div class="letter b4" id=""></div>
+                <div class="letter b5" id="last3"></div>
+            </div>
+            <div class="row" id="row4">
+                <div class="letter b1" id="4current-key"></div>
+                <div class="letter b2" id=""></div>
+                <div class="letter b3" id=""></div>
+                <div class="letter b4" id=""></div>
+                <div class="letter b5" id="last4"></div>
+            </div>
+            <div class="row" id="row5">
+                <div class="letter b1" id="5current-key"></div>
+                <div class="letter b2" id=""></div>
+                <div class="letter b3" id=""></div>
+                <div class="letter b4" id=""></div>
+                <div class="letter b5" id="last5"></div>
+            </div>
+        </div>
+        <div class="keyboard">
+            <div class="k-row">
+                <div class="key empty" id="q" onclick="runLetter('q')">Q</div>
+                <div class="key empty" id="w" onclick="runLetter('w')">W</div>
+                <div class="key empty" id="e" onclick="runLetter('e')">E</div>
+                <div class="key empty" id="r" onclick="runLetter('r')">R</div>
+                <div class="key empty" id="t" onclick="runLetter('t')">T</div>
+                <div class="key empty" id="y" onclick="runLetter('y')">Y</div>
+                <div class="key empty" id="u" onclick="runLetter('u')">U</div>
+                <div class="key empty" id="i" onclick="runLetter('i')">I</div>
+                <div class="key empty" id="o" onclick="runLetter('o')">O</div>
+                <div class="key empty" id="p" onclick="runLetter('p')">P</div>
+            </div>
+            <div class="k-row">
+                <div class="key empty" id="a" onclick="runLetter('a')">A</div>
+                <div class="key empty" id="s"onclick="runLetter('s')">S</div>
+                <div class="key empty" id="d"onclick="runLetter('d')">D</div>
+                <div class="key empty" id="f"onclick="runLetter('f')">F</div>
+                <div class="key empty" id="g"onclick="runLetter('g')">G</div>
+                <div class="key empty" id="h"onclick="runLetter('h')">H</div>
+                <div class="key empty" id="j"onclick="runLetter('j')">J</div>
+                <div class="key empty" id="k"onclick="runLetter('k')">K</div>
+                <div class="key empty" id="l"onclick="runLetter('l')">L</div>
+            </div>
+            <div class="k-row">
+                <div class="key empty material-icons"  id="Enter"onclick="runLetter('Enter')" style="display: flex; font-weight: 4000px;">&#xe5ca</div>
+                <div class="key empty" id="z"onclick="runLetter('z')">Z</div>
+                <div class="key empty" id="x"onclick="runLetter('x')">X</div>
+                <div class="key empty" id="c"onclick="runLetter('c')">C</div>
+                <div class="key empty" id="v"onclick="runLetter('v')">V</div>
+                <div class="key empty" id="b"onclick="runLetter('b')">B</div>
+                <div class="key empty" id="n"onclick="runLetter('n')">N</div>
+                <div class="key empty" id="m"onclick="runLetter('m')">M</div>
+                <div  id="Backspace"onclick="runLetter('Backspace')" class="key empty material-icons" style="display: flex">&#xe872;</div>
+            </div>
+        </div>
+    </body>
+
+    <script  src="page2.js"></script>
+</html>

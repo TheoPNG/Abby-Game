@@ -1,0 +1,10 @@
+#tester{
+    background-image: url('./Hey Abby.png');
+    width: 100px;
+    height: 100px;
+    background-size: cover; /* Ensures the image covers the element */
+background-position: center; /* Centers the image */
+background-repeat: no-repeat;
+filter: blur(8px);
+  -webkit-filter: blur(8px);
+}
