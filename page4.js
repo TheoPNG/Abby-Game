@@ -9,6 +9,17 @@
  * Wordle is a trademark of The New York Times Company. 
  * This project is an independent implementation and is not affiliated with or endorsed by The New York Times.
  */
+function zoomOutFully() {
+    let viewport = document.querySelector('meta[name="viewport"]');
+    if (!viewport) {
+      // Create the viewport meta tag if it doesn't exist
+      viewport = document.createElement('meta');
+      viewport.name = "viewport";
+      document.head.appendChild(viewport);
+    }
+    // Set the content attribute to zoom out fully
+    viewport.setAttribute('content', 'width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=yes');
+  }
 const date = new Date();
 document.getElementById("row0").style.gap = "8px";
 document.getElementById("row01").style.gap = "8px";

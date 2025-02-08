@@ -1,13 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="test.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=yes">
+    <title>Viewport Test</title>
 </head>
 <body>
-    <div  id="tester">Hello</div>
-    <img src="./Hey Abby.png" alt=""></img>
+    <h1>Test Viewport Zoom</h1>
+    <button onclick="zoomOutFully()">CLICK</button>
+    <script>
+        function zoomOutFully() {
+    console.log("Running zoomOutFully...");
+    let viewport = document.querySelector('meta[name="viewport"]');
+    console.log("Viewport meta tag before:", viewport);
+    if (!viewport) {
+        viewport = document.createElement('meta');
+        viewport.name = "viewport";
+        document.head.appendChild(viewport);
+        console.log("Created new viewport meta tag.");
+    }
+    viewport.setAttribute('content', 'width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=yes');
+    console.log("Updated viewport meta tag:", viewport);
+    // location.reload();
+}
+
+        // zoomOutFully();
+    </script>
 </body>
 </html>

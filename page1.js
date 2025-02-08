@@ -10,6 +10,20 @@
  */
 const date = new Date();
 
+function zoomOutFully() {
+    let viewport = document.querySelector('meta[name="viewport"]');
+    if (!viewport) {
+      // Create the viewport meta tag if it doesn't exist
+      viewport = document.createElement('meta');
+      viewport.name = "viewport";
+      document.head.appendChild(viewport);
+    }
+    // Set the content attribute to zoom out fully
+    viewport.setAttribute('content', 'width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=yes');
+    // location.reload();
+}
+  
+  // Call the function to apply the zoom-out
 
 async function isRealWord(word) {
     const response = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${word}`);
