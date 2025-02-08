@@ -267,7 +267,7 @@ text-shadow: none;
     display: flex;
     align-items: center;
     flex-direction: column;
-    gap: 10px;
+    gap: 5px;
     margin: 25px;
 }
 
