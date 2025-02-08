@@ -300,6 +300,10 @@ text-shadow: none;
         max-height: 40px;
         font-size: 14px; /* Adjust font size for smaller keys */
     }
+    img{
+        width: 50vw;
+        height: 100%;
+    }
 }
 
 /* For very small screens (phones under 480px width) */
@@ -310,6 +314,10 @@ text-shadow: none;
         max-width: 35px; /* Cap size */
         max-height: 35px;
         font-size: 12px; /* Smaller font for smaller keys */
+    }
+    img{
+        width: 50vw;
+        height: 100%;
     }
 }
 .empty {
