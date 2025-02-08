@@ -304,16 +304,18 @@ async function win() {
     }
     
     document.getElementById('row1').style.gap = "8px";
-    await sleep (100);
+    await sleep (500);
     document.getElementById('container').style.gap = "0px";
+    await sleep (200);
     for (row of document.getElementById('container').children){
     row.style.gap = "0px";
     
     }
+    await sleep (200);
     for (item of document.getElementsByClassName('COMPLETED')){
      item.style.borderRadius = "0px";   
     }
-    await sleep(100);
+    await sleep(1000);
     document.getElementById('continue').style.display = "flex";
     launchConfetti();
 }
