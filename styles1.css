@@ -277,18 +277,41 @@ text-shadow: none;
     gap: 10px;
 }
 
+/* Default keyboard key size (for medium to large screens) */
 .key {
-    width: 2.5vw;
-    height: 2.5vw;
-
+    width: 3vw; /* Base size for laptops/desktops */
+    height: 3vw;
+    max-width: 50px; /* Prevent keys from getting too large */
+    max-height: 50px;
     border-radius: 15%;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 15px;
-
+    font-size: 16px; /* Default font size */
+    transition: all 0.3s ease;
 }
 
+/* For small screens (tablets and large phones) */
+@media (max-width: 768px) {
+    .key {
+        width: 5vw; /* Slightly larger for smaller screens */
+        height: 5vw;
+        max-width: 40px; /* Ensure keys don’t get too big */
+        max-height: 40px;
+        font-size: 14px; /* Adjust font size for smaller keys */
+    }
+}
+
+/* For very small screens (phones under 480px width) */
+@media (max-width: 480px) {
+    .key {
+        width: 7vw; /* Larger for small phone screens */
+        height: 7vw;
+        max-width: 35px; /* Cap size */
+        max-height: 35px;
+        font-size: 12px; /* Smaller font for smaller keys */
+    }
+}
 .empty {
     background-color: white;
     border: 1px solid black;
