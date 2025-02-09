@@ -314,6 +314,12 @@ text-shadow: none;
 
 /* For very small screens (phones under 480px width) */
 @media (max-width: 480px) {
+    .letter,
+    .full,
+    .COMPLETED {
+    width: 30px;
+    height: 30px;
+    }
     .key {
         width: 7vw; /* Larger for small phone screens */
         height: 7vw;
